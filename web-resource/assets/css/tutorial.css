@@ -1,0 +1,18 @@
+#tutorial_body p{
+    font-weight: 400;
+    font-family: sans-serif;
+    margin: 0px;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: justify;
+}
+
+
+#tutorial_table_body td{
+    font-weight: 400;
+    font-family: sans-serif;
+    margin: 0px;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: justify;
+}

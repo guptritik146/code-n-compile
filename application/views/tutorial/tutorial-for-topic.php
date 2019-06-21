@@ -17,68 +17,18 @@
       <aside>
          <!-- Categories Widget -->
          <div class="widget categories">
-            <h4 class="widget-title"> Categories</h4>
-            <ul class="categories-list">
-               <li>
-                  <a href="#" style="color:#000;font-weight:bold">
-                  <i class="lni-dinner"></i>
-                  Java Identifiers <span class="category-counter">(5)</span>
-                  </a>
+            <h4 class="widget-title" style="font-weight: bold;"> <?php echo $currentPrimaryTopic[0]->topic_name; ?></h4>
+            <ul class="categories-list" style="padding: 5px 15px 15px 15px;">
+               <?php foreach($childTopics as $childTopic){ if($childTopic->topic_type == 'PRIMARY_TOPIC'){continue;} $color= '#000';?>
+				<?php if($childTopic->topic_type == 'TOPIC'){?>			   
+			   <li>
+                  <a href="/tutorials/<?php echo $childTopic->topic_code; ?>" style="color:#000;font-weight:bold"><i class="lni-book"></i><?php echo $childTopic->topic_name; ?></a>
                </li>
-               <li>
-                  <a href="#" style="color:#000;font-weight:bold">
-                  <i class="lni-control-panel"></i>
-                  Data types <span class="category-counter">(8)</span>
-                  </a>
-               </li>
-               <li>
-                  <a href="#" style="color:#000;font-weight:bold">
-                  <i class="lni-github"></i>
-                  Variables <span class="category-counter">(2)</span>
-                  </a>
-               </li>
-               <li>
-                  <a href="#" style="color:#000;font-weight:bold">
-                  <i class="lni-coffee-cup"></i>
-                  Scope of Variables <span class="category-counter">(3)</span>
-                  </a>
-               </li>
-               <li>
-                  <a href="#" style="color:#000;font-weight:bold">
-                  <i class="lni-home"></i>
-                  Final variables <span class="category-counter">(4)</span>
-                  </a>
-               </li>
-               <li>
-                  <a href="#" style="color:#000;font-weight:bold">
-                  <i class="lni-pencil"></i>
-                  Bounded Type Parameters <span class="category-counter">(5)</span>
-                  </a>
-               </li>
-               <li>
-                  <a href="#" style="color:#000;font-weight:bold">
-                  <i class="lni-display"></i>
-                  Forward declarations <span class="category-counter">(9)</span>
-                  </a>
-               </li>
-               <li>
-                  <a href="#" style="color:#000;font-weight:bold">
-                  <i class="lni-display"></i>
-                  Comments in Java <span class="category-counter">(9)</span>
-                  </a>
-               </li>
-               <li>
-                  <a href="#" style="color:#000;font-weight:bold">
-                  <i class="lni-display"></i>
-                  Binary search in Java <span class="category-counter">(9)</span>
-                  </a>
-               </li>
-               <li>
-                  <a href="#" style="color:#000;font-weight:bold">
-                  <i class="lni-display"></i>
-                  Sorting in Java <span class="category-counter">(9)</span>
-                  </a>
-               </li>
+			   <?php } else if($childTopic->topic_type == 'SUB_TOPIC'){  if($childTopic->topic_id == $tutorials[0]->tutorial_topic_id){$color="#00cc67";}?>
+				<li>
+                  <a href="/tutorials/<?php echo $childTopic->topic_code; ?>" style="color:<?php echo $color;?>; padding-left: 30px; padding-top: 1px;"><i class="lni-angle-double-right"></i><?php echo $childTopic->topic_name; ?></a>
+				</li>
+			   <?php } }?>
             </ul>
          </div>
          <div class="widget categories">

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Code n Compile - Classified Ads Website Template</title>
+    <title>Code n Compile - Fall in love with Coding</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="/web-resource/assets/css/bootstrap.min.css">
@@ -43,61 +43,69 @@
               <span class="lni-menu"></span>
               <span class="lni-menu"></span>
             </button>
-            <a href="index.html" class="navbar-brand"><img src="/web-resource/assets/img/logo.png" alt=""></a>
+            <a href="/" class="navbar-brand"><img src="/web-resource/assets/img/logo.png" alt=""></a>
           </div>
           <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
+              <!--<li class="nav-item active">
                 <a class="nav-link" href="index.html">
                   Home
                 </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="category.html">
-                  Categories
+              </li>-->
+			  <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Tutorials
                 </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Listings
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="adlistinggrid.html">Ad Grid</a>
-                  <a class="dropdown-item" href="adlistinglist.html">Ad Listing</a>
-                  <a class="dropdown-item" href="ads-details.html">Listing Detail</a>
+				<div class="dropdown-menu">
+				 <?php foreach($primaryTopics as $primaryTopic){?>
+                  <a class="dropdown-item" href="/tutorials/<?php echo $primaryTopic->topic_code;?>"><?php echo $primaryTopic->topic_name;?> Tutorials</a>
+				 <?php } ?> 
                 </div>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Pages 
+                  MCQ Practice
                 </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="about.html">About Us</a>
-                  <a class="dropdown-item" href="services.html">Services</a>
-                  <a class="dropdown-item" href="ads-details.html">Ads Details</a>
-                  <a class="dropdown-item" href="post-ads.html">Ads Post</a>
-                  <a class="dropdown-item" href="pricing.html">Packages</a>
-                  <a class="dropdown-item" href="testimonial.html">Testimonial</a>
-                  <a class="dropdown-item" href="faq.html">FAQ</a>
-                  <a class="dropdown-item" href="404.html">404</a>
+				<div class="dropdown-menu">
+				 <?php foreach($primaryTopics as $primaryTopic){?>
+                  <a class="dropdown-item" href="/mcq/<?php echo $primaryTopic->topic_code;?>"><?php echo $primaryTopic->topic_name;?> (<?php echo $primaryTopic->mcq_count;?>)</a>
+				 <?php } ?> 
                 </div>
               </li>
-              <li class="nav-item dropdown">
+			  
+			  <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Blog 
+                 Interview Questions
                 </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="blog.html">Blog - Right Sidebar</a>
-                  <a class="dropdown-item" href="blog-left-sidebar.html">Blog - Left Sidebar</a>
-                  <a class="dropdown-item" href="blog-grid-full-width.html"> Blog full width </a>
-                  <a class="dropdown-item" href="single-post.html">Blog Details</a>
+				<div class="dropdown-menu">
+				 <?php foreach($primaryTopics as $primaryTopic){?>
+                  <a class="dropdown-item" href="/questions/<?php echo $primaryTopic->topic_code;?>"><?php echo $primaryTopic->topic_name;?> (<?php echo $primaryTopic->qna_count;?>)</a>
+				 <?php } ?> 
                 </div>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">
-                  Contact
+			  
+			  <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                DS
                 </a>
+				<div class="dropdown-menu">
+				 <?php foreach($primaryTopics as $primaryTopic){?>
+                  <a class="dropdown-item" href="/questions/<?php echo $primaryTopic->topic_code;?>"><?php echo $primaryTopic->topic_name;?> (<?php echo $primaryTopic->qna_count;?>)</a>
+				 <?php } ?> 
+                </div>
               </li>
+			  
+			   <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Algo
+                </a>
+				<div class="dropdown-menu">
+				 <?php foreach($primaryTopics as $primaryTopic){?>
+                  <a class="dropdown-item" href="/questions/<?php echo $primaryTopic->topic_code;?>"><?php echo $primaryTopic->topic_name;?> (<?php echo $primaryTopic->qna_count;?>)</a>
+				 <?php } ?> 
+                </div>
+              </li>
+
             </ul>
             <ul class="sign-in">
               <li class="nav-item dropdown">
@@ -114,8 +122,8 @@
                 </div>
               </li>
             </ul>
-            <a class="tg-btn" href="post-ads.html">
-              <i class="lni-pencil-alt"></i> Post An Ad
+            <a class="tg-btn" href="/practice">
+              <i class="lni-pencil-alt"></i> Practice
             </a>
           </div>
         </div>

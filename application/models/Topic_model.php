@@ -7,7 +7,9 @@ class Topic_model extends CI_Model
     const TABLE_COLUMN_TOPIC_CODE = 'topic_code';
     const TABLE_COLUMN_STATUS = 'status';
     const TABLE_COLUMN_ORDER = 'order';
-    const TABLE_PARENT_ID = 'parent_id';
+    const TABLE_COLUMN_PARENT_ID = 'parent_id';
+	const TABLE_COLUMN_SUPER_PARENT = 'super_parent';
+	const TABLE_COLUMN_TOPIC_TYPE = 'topic_type';
     
     
     public function __construct()
@@ -29,7 +31,7 @@ class Topic_model extends CI_Model
     
     public function getChildTopics($parentId)
     {
-        $result = $this->db->where(self::TABLE_PARENT_ID, $parentId)->where(self::TABLE_COLUMN_STATUS, 'APPROVED')->get(self::TABLE_NAME)->result();
+        $result = $this->db->where(self::TABLE_COLUMN_PARENT_ID, $parentId)->where(self::TABLE_COLUMN_STATUS, 'APPROVED')->get(self::TABLE_NAME)->result();
         return $result;
     }
 	
@@ -59,9 +61,20 @@ class Topic_model extends CI_Model
     }
     public function getPrimaryTopicsByStatus($status)
     {
-        $result = $this->db->where(self::TABLE_COLUMN_STATUS, $status)->where(self::TABLE_PARENT_ID, 0)->get(self::TABLE_NAME)->result();
+        $result = $this->db->where(self::TABLE_COLUMN_STATUS, $status)->where(self::TABLE_COLUMN_PARENT_ID, 0)->get(self::TABLE_NAME)->result();
         return $result;
     }
+	
+	public function getFirstSubtopicForPrimaryTopic($primaryTopic){
+		$result = $this->db->where(self::TABLE_COLUMN_SUPER_PARENT, $primaryTopic)->where(self::TABLE_COLUMN_TOPIC_TYPE, 'SUB_TOPIC')->order_by(self::TABLE_COLUMN_ORDER,'asc')->limit(1)->get(self::TABLE_NAME)->result();
+        return $result;
+	}
+	
+	public function getChildTopicAndSubTopic($topicId){
+		$this->db->where(self::TABLE_COLUMN_SUPER_PARENT, $topicId);
+        $query = $this->db->get(self::TABLE_NAME);
+        return $query->result();
+	}
 	
 }
 ?>

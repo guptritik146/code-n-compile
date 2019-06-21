@@ -8,7 +8,6 @@ $route['default_controller'] = 'home';
 //Tutorial
 $route['tutorials-home'] = 'tutorial/tutorial/showTutorialsHome';  //folder-name/controller-name/function-name
 $route['tutorials/(:any)'] = 'tutorial/tutorial/showTutorialsForTopic/$1';
-$route['tutorials/(:any)/(:any)'] = 'tutorial/tutorial/showTutorialsForSubTopic/$1/$2';
 
 //MCQ
 $route['mcq-home'] = 'mcq/mcq/showMcqHome';
@@ -74,7 +73,10 @@ $route['google-oauth-request'] = 'login-signup/GoogleOAuthRequest';
 $route['google-oauth-response'] = 'login-signup/GoogleOAuthResponse';
 
 
-$route['tutorial'] = 'tutorial';
-$route['tutorial/(:any)'] = 'tutorial/tutorial/showTutorial/$1';
-$route['404_override'] = '';
+// Error
+$route['404_override'] = 'errorHandling/pageNotFound';
 $route['translate_uri_dashes'] = FALSE;
+$route['no-permission'] = 'errorHandling/noPermissionPage';
+
+
+

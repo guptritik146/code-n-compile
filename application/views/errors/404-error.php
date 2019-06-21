@@ -12,7 +12,7 @@
                   <button class="btn btn-common btn-search" type="button">Search Now</button>
                </form>
                <div class="description">
-                  <span>Or Goto <a href="#">Homepage</a></span>
+                  <span>Or Goto <a href="/">Homepage</a></span>
                </div>
             </div>
          </div>

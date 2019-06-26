@@ -26,6 +26,14 @@
     <link rel="stylesheet" type="text/css" href="/web-resource/assets/css/responsive.css">
     <link rel="stylesheet" type="text/css" href="/web-resource/assets/css/codencompile.css">
     <link rel="stylesheet" type="text/css" href="/web-resource/assets/css/tutorial.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var data = ["C", "C++", "JAVA", "PHP", "Python", "HTML", "CSS", "JavaScript", "Swift", "AngularJs", "NodeJs", "MySQL", "MongoDB", "Bootstrap", "Solidity"];
+            $("#seed_one").autocomplete({source:data});
+        });
+    </script>
 
   </head>
   <body>
